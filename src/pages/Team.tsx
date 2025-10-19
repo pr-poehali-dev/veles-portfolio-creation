@@ -6,7 +6,8 @@ const Team = () => {
   const players = [
     { id: 1, name: 'Triton', position: 'Защитник', number: 24, goals: 0, assists: 0, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/77036a63-a2e5-4132-878e-afd5dac0482a.jpg' },
     { id: 2, name: 'QwazaRR', position: 'Вратарь', number: 88, goals: 0, assists: 0, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/5c019306-fa24-406a-a6a9-5f9ff4e71a48.jpg' },
-    { id: 3, name: 'Александр Петров', position: 'Нападающий', number: 17, goals: 23, assists: 15, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/a3171e46-c329-497b-a499-cf0e86ae4662.jpg' },
+    { id: 3, name: 'L1MA', position: 'Нападающий', number: 16, goals: 0, assists: 0, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/a3171e46-c329-497b-a499-cf0e86ae4662.jpg' },
+    { id: 4, name: 'Александр Петров', position: 'Нападающий', number: 17, goals: 23, assists: 15, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/a3171e46-c329-497b-a499-cf0e86ae4662.jpg' },
     { id: 4, name: 'Дмитрий Соколов', position: 'Защитник', number: 5, goals: 4, assists: 18, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/77036a63-a2e5-4132-878e-afd5dac0482a.jpg' },
     { id: 5, name: 'Максим Иванов', position: 'Вратарь', number: 1, goals: 0, assists: 2, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/5c019306-fa24-406a-a6a9-5f9ff4e71a48.jpg' },
     { id: 6, name: 'Андрей Смирнов', position: 'Нападающий', number: 11, goals: 19, assists: 21, image: 'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/a3171e46-c329-497b-a499-cf0e86ae4662.jpg' },
