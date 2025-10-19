@@ -1,385 +1,218 @@
-import { useState } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Icon from '@/components/ui/icon';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const scrollToSection = (id: string) => {
-    setActiveSection(id);
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const teamPlayers = [
-    { id: 1, name: 'Александр Петров', position: 'Нападающий', number: 17, goals: 23, assists: 15 },
-    { id: 2, name: 'Дмитрий Соколов', position: 'Защитник', number: 5, goals: 4, assists: 18 },
-    { id: 3, name: 'Максим Иванов', position: 'Вратарь', number: 1, goals: 0, assists: 2 },
-    { id: 4, name: 'Андрей Смирнов', position: 'Нападающий', number: 11, goals: 19, assists: 21 },
-    { id: 5, name: 'Павел Морозов', position: 'Защитник', number: 7, goals: 6, assists: 14 },
-    { id: 6, name: 'Сергей Волков', position: 'Нападающий', number: 22, goals: 17, assists: 12 },
-  ];
-
-  const achievements = [
-    { title: 'Победитель регулярного чемпионата', season: '2024-2025', icon: 'Trophy' },
-    { title: 'Лучшая оборона лиги', season: '2024-2025', icon: 'Shield' },
-    { title: 'Серия из 12 побед подряд', season: '2024-2025', icon: 'Flame' },
-  ];
-
-  const stats = {
-    matches: 48,
-    wins: 34,
-    draws: 8,
-    losses: 6,
-    goalsFor: 156,
-    goalsAgainst: 89,
-  };
-
-  const galleryImages = [
-    'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/d4d9f668-8ec8-4bd6-b5cb-d36f9d4a8a38.jpg',
-    'https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/5def1e7f-186e-44dd-b6ed-e9c2b25593d8.jpg',
-  ];
-
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center font-oswald text-2xl font-bold">
-                В
-              </div>
-              <div>
-                <h1 className="font-oswald text-xl font-bold">ВЕЛЕС</h1>
-                <p className="text-xs text-muted-foreground">REKJHL • Сезон 5</p>
-              </div>
-            </div>
-            <div className="hidden md:flex gap-6">
-              {['Главная', 'Команда', 'Достижения', 'Статистика', 'Галерея', 'Контакты'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-sm font-medium hover:text-primary transition-colors"
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-            <Button size="sm" className="hidden md:flex">
-              <Icon name="Mail" size={16} className="mr-2" />
-              Связаться
-            </Button>
+    <div className="min-h-screen">
+      <Header />
+      
+      <main className="pt-20">
+        <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: 'url(https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/a3171e46-c329-497b-a499-cf0e86ae4662.jpg)',
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
           </div>
-        </div>
-      </nav>
-
-      <section id="главная" className="pt-32 pb-20 px-4">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <Badge className="bg-primary/10 text-primary border-primary/20">
-                Сезон 2024-2025
-              </Badge>
-              <h2 className="font-oswald text-6xl lg:text-7xl font-bold leading-tight">
-                КОМАНДА
-                <br />
-                <span className="text-primary">ВЕЛЕС</span>
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Хоккейный клуб REKJHL 5 сезона — команда, где сила встречается с мастерством, 
-                а победа становится традицией
-              </p>
-              <div className="flex gap-4">
-                <Button size="lg" onClick={() => scrollToSection('команда')}>
-                  <Icon name="Users" size={20} className="mr-2" />
-                  Наша команда
-                </Button>
-                <Button size="lg" variant="outline" onClick={() => scrollToSection('статистика')}>
-                  Статистика
-                </Button>
-              </div>
+          
+          <div className="container mx-auto px-4 relative z-10 text-center animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-primary/30">
+              <Icon name="Trophy" className="w-5 h-5 text-primary" />
+              <span className="text-sm font-medium text-primary uppercase tracking-wider">Сезон 5 REKJHL</span>
             </div>
-            <div className="relative animate-scale-in">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl"></div>
-              <img
-                src={galleryImages[0]}
-                alt="Команда Велес"
-                className="relative rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-              />
+            
+            <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-6 leading-none">
+              ХК <span className="text-primary">ВЕЛЕС</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+              Сила, скорость и непревзойденная команда духа на льду
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="/team" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+              >
+                Наша команда
+                <Icon name="ArrowRight" className="w-5 h-5" />
+              </a>
+              <a 
+                href="/achievements" 
+                className="bg-card hover:bg-muted text-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 border border-border flex items-center justify-center gap-2"
+              >
+                Достижения
+                <Icon name="Award" className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-20">
-            <Card className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all hover:scale-105">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Icon name="TrendingUp" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-3xl font-oswald font-bold">{stats.wins}</p>
-                    <p className="text-sm text-muted-foreground">Побед</p>
-                  </div>
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <Icon name="ChevronDown" className="w-8 h-8 text-primary" />
+          </div>
+        </section>
+
+        <section className="py-20 bg-card">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-8 bg-background rounded-xl border border-border hover:border-primary transition-all hover:scale-105 animate-scale-in">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Users" className="w-8 h-8 text-primary" />
                 </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 border-accent/20 hover:border-accent/40 transition-all hover:scale-105">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Icon name="Target" size={24} className="text-accent" />
-                  </div>
-                  <div>
-                    <p className="text-3xl font-oswald font-bold">{stats.goalsFor}</p>
-                    <p className="text-sm text-muted-foreground">Забито голов</p>
-                  </div>
+                <h3 className="text-4xl font-bold text-foreground mb-2">25+</h3>
+                <p className="text-muted-foreground">Игроков в составе</p>
+              </div>
+
+              <div className="text-center p-8 bg-background rounded-xl border border-border hover:border-primary transition-all hover:scale-105 animate-scale-in" style={{ animationDelay: '0.1s' }}>
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Trophy" className="w-8 h-8 text-primary" />
                 </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 border-secondary/20 hover:border-secondary/40 transition-all hover:scale-105">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                    <Icon name="Shield" size={24} className="text-secondary" />
-                  </div>
-                  <div>
-                    <p className="text-3xl font-oswald font-bold">{stats.goalsAgainst}</p>
-                    <p className="text-sm text-muted-foreground">Пропущено</p>
-                  </div>
+                <h3 className="text-4xl font-bold text-foreground mb-2">12</h3>
+                <p className="text-muted-foreground">Побед в сезоне</p>
+              </div>
+
+              <div className="text-center p-8 bg-background rounded-xl border border-border hover:border-primary transition-all hover:scale-105 animate-scale-in" style={{ animationDelay: '0.2s' }}>
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Target" className="w-8 h-8 text-primary" />
                 </div>
-              </CardContent>
-            </Card>
+                <h3 className="text-4xl font-bold text-foreground mb-2">156</h3>
+                <p className="text-muted-foreground">Голов забито</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="команда" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <Badge className="mb-4">Состав команды</Badge>
-            <h2 className="font-oswald text-5xl font-bold mb-4">НАШИ ИГРОКИ</h2>
-            <p className="text-muted-foreground text-lg">Профессионалы, которые делают нас сильнее</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {teamPlayers.map((player, index) => (
-              <Card key={player.id} className="hover:scale-105 transition-transform" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="font-oswald">{player.name}</CardTitle>
-                      <p className="text-sm text-muted-foreground mt-1">{player.position}</p>
-                    </div>
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                      <span className="font-oswald text-xl font-bold">{player.number}</span>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4">
-                    <div className="flex-1 bg-muted/50 rounded-lg p-3 text-center">
-                      <p className="text-2xl font-oswald font-bold text-primary">{player.goals}</p>
-                      <p className="text-xs text-muted-foreground">Голы</p>
-                    </div>
-                    <div className="flex-1 bg-muted/50 rounded-lg p-3 text-center">
-                      <p className="text-2xl font-oswald font-bold text-accent">{player.assists}</p>
-                      <p className="text-xs text-muted-foreground">Передачи</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">О команде</h2>
+              <div className="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
 
-      <section id="достижения" className="py-20 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Успехи</Badge>
-            <h2 className="font-oswald text-5xl font-bold mb-4">ДОСТИЖЕНИЯ</h2>
-            <p className="text-muted-foreground text-lg">Результаты нашего труда и упорства</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => (
-              <Card key={index} className="bg-gradient-to-br from-card to-muted/30 border-2 hover:border-primary transition-all hover:scale-105">
-                <CardContent className="pt-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Icon name={achievement.icon as any} size={32} className="text-primary" />
-                  </div>
-                  <h3 className="font-oswald text-xl font-bold mb-2">{achievement.title}</h3>
-                  <Badge variant="outline">{achievement.season}</Badge>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="статистика" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <Badge className="mb-4">Цифры сезона</Badge>
-            <h2 className="font-oswald text-5xl font-bold mb-4">СТАТИСТИКА</h2>
-          </div>
-          <Card>
-            <CardContent className="pt-8">
-              <Tabs defaultValue="overview" className="w-full">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="overview">Обзор</TabsTrigger>
-                  <TabsTrigger value="detailed">Детально</TabsTrigger>
-                </TabsList>
-                <TabsContent value="overview" className="space-y-6 mt-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-muted/50 rounded-lg p-6 text-center">
-                      <p className="text-4xl font-oswald font-bold text-primary">{stats.matches}</p>
-                      <p className="text-sm text-muted-foreground mt-2">Матчей сыграно</p>
-                    </div>
-                    <div className="bg-muted/50 rounded-lg p-6 text-center">
-                      <p className="text-4xl font-oswald font-bold text-accent">{((stats.wins / stats.matches) * 100).toFixed(0)}%</p>
-                      <p className="text-sm text-muted-foreground mt-2">Процент побед</p>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">Победы</span>
-                      <div className="flex items-center gap-3">
-                        <div className="w-48 h-2 bg-muted rounded-full overflow-hidden">
-                          <div className="h-full bg-primary" style={{ width: `${(stats.wins / stats.matches) * 100}%` }}></div>
-                        </div>
-                        <span className="font-oswald font-bold w-8">{stats.wins}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">Ничьи</span>
-                      <div className="flex items-center gap-3">
-                        <div className="w-48 h-2 bg-muted rounded-full overflow-hidden">
-                          <div className="h-full bg-accent" style={{ width: `${(stats.draws / stats.matches) * 100}%` }}></div>
-                        </div>
-                        <span className="font-oswald font-bold w-8">{stats.draws}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">Поражения</span>
-                      <div className="flex items-center gap-3">
-                        <div className="w-48 h-2 bg-muted rounded-full overflow-hidden">
-                          <div className="h-full bg-destructive" style={{ width: `${(stats.losses / stats.matches) * 100}%` }}></div>
-                        </div>
-                        <span className="font-oswald font-bold w-8">{stats.losses}</span>
-                      </div>
-                    </div>
-                  </div>
-                </TabsContent>
-                <TabsContent value="detailed" className="space-y-4 mt-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <Card>
-                      <CardContent className="pt-6 text-center">
-                        <Icon name="Target" size={32} className="text-primary mx-auto mb-2" />
-                        <p className="text-3xl font-oswald font-bold">{stats.goalsFor}</p>
-                        <p className="text-sm text-muted-foreground">Забито голов</p>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardContent className="pt-6 text-center">
-                        <Icon name="Shield" size={32} className="text-secondary mx-auto mb-2" />
-                        <p className="text-3xl font-oswald font-bold">{stats.goalsAgainst}</p>
-                        <p className="text-sm text-muted-foreground">Пропущено</p>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardContent className="pt-6 text-center">
-                        <Icon name="TrendingUp" size={32} className="text-accent mx-auto mb-2" />
-                        <p className="text-3xl font-oswald font-bold">+{stats.goalsFor - stats.goalsAgainst}</p>
-                        <p className="text-sm text-muted-foreground">Разница мячей</p>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardContent className="pt-6 text-center">
-                        <Icon name="BarChart3" size={32} className="text-primary mx-auto mb-2" />
-                        <p className="text-3xl font-osload font-bold">{(stats.goalsFor / stats.matches).toFixed(1)}</p>
-                        <p className="text-sm text-muted-foreground">Голов за матч</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section id="галерея" className="py-20 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">Моменты</Badge>
-            <h2 className="font-oswald text-5xl font-bold mb-4">ГАЛЕРЕЯ</h2>
-            <p className="text-muted-foreground text-lg">Лучшие моменты команды в фотографиях</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-xl aspect-video">
-                <img
-                  src={image}
-                  alt={`Галерея ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="animate-slide-in">
+                <img 
+                  src="https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/77036a63-a2e5-4132-878e-afd5dac0482a.jpg" 
+                  alt="Команда Велес"
+                  className="rounded-xl shadow-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section id="контакты" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-2xl text-center">
-          <Badge className="mb-4">Связь</Badge>
-          <h2 className="font-oswald text-5xl font-bold mb-4">КОНТАКТЫ</h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            Свяжитесь с нами для сотрудничества, спонсорства или участия в тренировках
-          </p>
-          <Card>
-            <CardContent className="pt-8 space-y-6">
-              <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                <Icon name="Mail" size={24} className="text-primary" />
-                <div className="text-left">
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">veles@rekjhl.ru</p>
+              <div className="space-y-6 animate-fade-in">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  ХК "Велес" – это команда, где каждый игрок горит желанием побеждать. Мы представляем 5 сезон REKJHL с гордостью и амбициями стать лучшими в лиге.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Наша философия основана на дисциплине, взаимоподдержке и постоянном развитии. Каждая тренировка, каждая игра – это шаг к совершенству.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-4 pt-6">
+                  <div className="bg-card p-6 rounded-lg border border-border">
+                    <Icon name="Shield" className="w-8 h-8 text-primary mb-3" />
+                    <h4 className="text-lg font-semibold text-foreground mb-2">Надежная защита</h4>
+                    <p className="text-sm text-muted-foreground">Крепкая оборона на льду</p>
+                  </div>
+                  <div className="bg-card p-6 rounded-lg border border-border">
+                    <Icon name="Zap" className="w-8 h-8 text-primary mb-3" />
+                    <h4 className="text-lg font-semibold text-foreground mb-2">Быстрые атаки</h4>
+                    <p className="text-sm text-muted-foreground">Молниеносный переход в нападение</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                <Icon name="Phone" size={24} className="text-accent" />
-                <div className="text-left">
-                  <p className="text-sm text-muted-foreground">Телефон</p>
-                  <p className="font-medium">+7 (999) 123-45-67</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                <Icon name="MapPin" size={24} className="text-secondary" />
-                <div className="text-left">
-                  <p className="text-sm text-muted-foreground">Арена</p>
-                  <p className="font-medium">Ледовый Дворец «Спартак»</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <footer className="py-8 px-4 border-t border-border">
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center font-oswald text-xl font-bold">
-              В
             </div>
-            <span className="font-oswald text-lg font-bold">ВЕЛЕС</span>
           </div>
-          <p className="text-sm text-muted-foreground">
-            © 2024 ХК Велес REKJHL. Сезон 5. Все права защищены.
-          </p>
-        </div>
-      </footer>
+        </section>
+
+        <section className="py-20 bg-card">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Последние новости</h2>
+              <div className="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-background rounded-xl overflow-hidden border border-border hover:border-primary transition-all hover:scale-105">
+                <div className="h-48 bg-muted relative overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/5c019306-fa24-406a-a6a9-5f9ff4e71a48.jpg"
+                    alt="Новость"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-xs text-primary font-semibold mb-2 uppercase tracking-wider">15 октября 2025</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Разгромная победа в домашнем матче</h3>
+                  <p className="text-muted-foreground mb-4">Команда Велес одержала уверенную победу со счетом 5:1 над соперниками из другого города.</p>
+                  <a href="#" className="text-primary font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                    Читать далее
+                    <Icon name="ArrowRight" className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-background rounded-xl overflow-hidden border border-border hover:border-primary transition-all hover:scale-105">
+                <div className="h-48 bg-muted relative overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/a3171e46-c329-497b-a499-cf0e86ae4662.jpg"
+                    alt="Новость"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-xs text-primary font-semibold mb-2 uppercase tracking-wider">12 октября 2025</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Новый рекорд сезона установлен</h3>
+                  <p className="text-muted-foreground mb-4">Наш форвард забил 3 шайбы за один период, установив новый рекорд команды.</p>
+                  <a href="#" className="text-primary font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                    Читать далее
+                    <Icon name="ArrowRight" className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-background rounded-xl overflow-hidden border border-border hover:border-primary transition-all hover:scale-105">
+                <div className="h-48 bg-muted relative overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/2ea6575c-c3a6-4e96-9c59-3e08920e844f/files/77036a63-a2e5-4132-878e-afd5dac0482a.jpg"
+                    alt="Новость"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-xs text-primary font-semibold mb-2 uppercase tracking-wider">8 октября 2025</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Пополнение в составе команды</h3>
+                  <p className="text-muted-foreground mb-4">К нам присоединился опытный защитник из молодежной сборной России.</p>
+                  <a href="#" className="text-primary font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                    Читать далее
+                    <Icon name="ArrowRight" className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-primary/5">
+          <div className="container mx-auto px-4 text-center">
+            <Icon name="Heart" className="w-16 h-16 text-primary mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Поддержи свою команду!</h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Приходи на наши домашние матчи и стань частью победы
+            </p>
+            <a 
+              href="/contacts" 
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105"
+            >
+              Купить билет
+              <Icon name="Ticket" className="w-5 h-5" />
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 };
