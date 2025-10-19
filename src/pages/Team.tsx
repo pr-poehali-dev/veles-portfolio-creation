@@ -17,7 +17,7 @@ const Team = () => {
   ];
 
   const staff = [
-    { name: 'Игорь Александров', role: 'Главный тренер', icon: 'User' },
+    { name: 'W1zard', role: 'Главный тренер', icon: 'User' },
     { name: 'Михаил Громов', role: 'Ассистент тренера', icon: 'Users' },
     { name: 'Анна Соколова', role: 'Врач команды', icon: 'Heart' },
     { name: 'Дмитрий Белов', role: 'Физиотерапевт', icon: 'Activity' },
